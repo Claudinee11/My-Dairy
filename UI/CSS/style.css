@@ -1,0 +1,256 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/*header and background*/
+header{
+    background-image: url('/UI/assets/207705-167160-R3L8T8D-1000-McCarleyBeth_Travel_ANightAtDeadvlei_SS-1000-541576bc48-1484729696.jpg');
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    
+}
+ul{
+    list-style-type: none;
+     display: flex; 
+    flex-wrap: wrap; 
+    font-weight: bolder;
+    justify-content: flex-end;
+}
+ul li{
+    display: inline-block;
+    flex-wrap: wrap;
+     margin-top: 50px; 
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    flex-grow: 1px; 
+    flex-wrap: wrap; 
+     padding: 50px;
+    
+      
+}
+ul li .active a{
+    background-color: #fff;
+    color: #000;
+    flex-wrap: wrap;
+}
+ 
+.main{
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content:center;
+
+}
+.logo img{
+     float: left; 
+    width: 80px;
+     height: auto; 
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.title h1{
+color:#fff;
+font-size:70px;
+
+}
+
+ .Your-day{
+    text-align:justify;
+     flex-wrap: wrap; 
+    padding: 100px;
+    
+     
+}  
+.Your-day h1{
+    text-transform: uppercase;
+    color: bisque;
+}
+ .alin-form {
+    background-color: grey;
+    display: inline-flex;
+    justify-content: space-around;
+    
+}
+
+.av h1{
+    color:#ffffff;
+    text-align: center;
+    justify-content: center;
+    margin-left: 15px;
+    flex-wrap:wrap;
+
+}
+/* sign up and sign in*/
+.wraps{
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #fff;
+    margin-top: 100px;
+}
+h2{
+    text-align: center;
+
+}
+input[type=text],input[type=password], input[type=email]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline:none;
+    border: none;
+    border-bottom: 1px dotted #fff;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+input[type=submit]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 30px;
+    outline:none;
+    border: none;
+    background: #60adde;
+    opacity: 0.7;
+    border-radius: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+input[type=submit]:hover{
+    background: #003366;
+    opacity: 0.7;
+}
+#main{
+    text-decoration: #ddd4d4;
+     display: flex; 
+    flex-wrap: wrap;
+    font-size: 15px;
+    padding: 20px;
+}
+#main a{
+    text-decoration: none;
+    margin-left:15px;
+    color: #456990;
+    text-transform: uppercase;
+
+} 
+.images{
+     height: 70px;
+     width: 70px;
+    margin-right: 100px;
+    margin-left: 100px;
+    padding: 10px;
+    flex-wrap:wrap;
+}
+/*on 29 08/2019*/
+
+.contact-us{
+    border: grey solid 1px;
+    border-radius: 0.5em;
+    background-color:grey;
+    margin: 0 auto;
+    justify-content: justify;
+    flex-wrap: wrap;
+}
+.contact-us h5{
+    text-transform: uppercase;
+    text-align: center;
+    color: bisque;
+}
+
+form input{
+    width: 90%;
+    height: 2em;;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 0.5em;
+    border: hidden;
+
+}
+form label{
+    color:black;
+    text-transform: uppercase;
+}
+ form .button{
+    width:30%;
+    margin-top:2em;
+   margin-left:40%;
+   margin-right: 40%;
+   font-size:20px;
+   color: bisque;
+   background-color: grey;
+   text-transform: uppercase;
+  
+   
+} 
+.mess{
+    background-color: grey;
+}
+
+/*on 30 08/2019*/
+
+
+.required{
+    display: flex;
+     justify-content: center; 
+     flex-wrap: wrap;
+     margin-top: 100px;
+     
+
+}
+ .our-need{
+    justify-content: flex-start;
+    background: grey;
+    padding: 10px;
+    border: 1em;
+    
+} 
+.our-need p{
+    justify-content: flex-start;
+    justify-items: center;
+    color: bisque;
+    padding: 20px;
+    text-transform: uppercase;
+   
+    
+
+}
+.your-entry{
+    display: inline-flexbox;
+    background: #546354;
+    flex-wrap: wrap;
+}
+.buttons{
+    padding: 10px;
+    margin-left: 120px;
+    text-transform: uppercase;
+    
+}
+
+
+
+/*footer*/
+.footer{
+    background-color: rgb(69, 69, 70);
+    padding: 20px;
+    color: bisque;
+    height: 1vh;
+    font-size: 10px;
+    text-align: center; 
+    
+} 
