@@ -140,6 +140,7 @@ input[type=text],input[type=password], input[type=email]{
     text-decoration: none;
     color: #fff;
 }
+
 #main{
     text-decoration: #ddd4d4;
      display: flex; 
