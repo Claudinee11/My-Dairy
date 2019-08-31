@@ -217,47 +217,6 @@ form label{
      flex-wrap: wrap;
      margin-top: 100px;
      
-
-}
- .our-need{
-    justify-content: flex-start;
-    background: grey;
-    padding: 10px;
-    border: 1em;
-    
-} 
-.our-need p{
-    justify-content: flex-start;
-    justify-items: center;
-    color: bisque;
-    padding: 20px;
-    text-transform: uppercase;
-   
-    
-
-}
-.your-entry{
-    display: inline-flexbox;
-    background: #546354;
-    flex-wrap: wrap;
-}
-.buttons{
-    padding: 10px;
-    margin-left: 120px;
-    text-transform: uppercase;
-    
-}
-.changes{
-    text-align: center; 
-   flex-wrap: wrap;
-   padding: 20px;
-}
-.changes a{
- text-decoration: none;
- color: #ffffff;
- opacity: 0.9;
-   text-transform: uppercase;
-
 }
 
 
