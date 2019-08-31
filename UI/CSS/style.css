@@ -134,11 +134,13 @@ input[type=text],input[type=password], input[type=email]{
 .types a:hover{
     background: #003366;
     opacity: 0.7;
+    color: white;
 }
 .types a{
     text-decoration: none;
     color: #fff;
 }
+
 #main{
     text-decoration: #ddd4d4;
      display: flex; 
@@ -216,6 +218,7 @@ form label{
      margin-top: 100px;
      
 }
+
 
 
 /*footer*/
