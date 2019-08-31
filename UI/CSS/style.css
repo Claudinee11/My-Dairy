@@ -118,7 +118,7 @@ input[type=text],input[type=password], input[type=email]{
     margin: 5px;
     font-weight: bold;
 }
-input[type=submit]{
+.types{
     width: 100%;
     box-sizing: border-box;
     padding: 10px 0;
@@ -131,9 +131,13 @@ input[type=submit]{
     font-size: 20px;
     color: #fff;
 }
-input[type=submit]:hover{
+.types a:hover{
     background: #003366;
     opacity: 0.7;
+}
+.types a{
+    text-decoration: none;
+    color: #fff;
 }
 #main{
     text-decoration: #ddd4d4;
