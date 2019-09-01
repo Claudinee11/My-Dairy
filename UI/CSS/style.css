@@ -178,7 +178,7 @@ input[type=text],input[type=password], input[type=email]{
     margin-top: 15px;
     
 }
-/*on 31 august 2019*/
+
 .changes{
     text-align: center; 
    flex-wrap: wrap;
@@ -191,29 +191,7 @@ input[type=text],input[type=password], input[type=email]{
    text-transform: uppercase;
 
 }
-/*on 01 sept/2019*/
-/*about us*/
-.img-wrap{
-    width: 100%;
 
-}
-.img-wrap img{
-    width: 40%;
-   height: 30%; 
-    padding: 50px;
-    border-radius: 70%;
-   
-}
- #about-us{
-    display: flex;
-    justify-content: center;
-     align-items: center; 
-}
- 
-.texts{
-    text-transform: initial;
-     margin-top: 30px;
-}
 /*on 109 2019 working on entry*/
 
 #controls h1 {
