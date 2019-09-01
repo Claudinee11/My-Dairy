@@ -126,53 +126,7 @@ input[type=text],input[type=password], input[type=email]{
     margin: 2px;
     font-weight: bold;
 }
-    .types{
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 0;
-    margin-top: 30px;
-    outline:none;
-    border: none;
-    background: #60adde;
-    opacity: 0.9;
-    border-radius: 20px;
-    font-size: 20px;
-    color: #fff;
-}
-.types a:hover{
-    background: #003366;
-    opacity: 0.7;
-    color: white;
-}
-.types a{
-    text-decoration: none;
-    color: #fff;
-}
-#main{
-    text-decoration: #ddd4d4;
-     display: flex; 
-    flex-wrap: wrap;
-    font-size: 15px;
-    padding: 20px;
-}
-#main a{
-    text-decoration: none;
-    margin-left:15px;
-    color: #456990;
-    text-transform: uppercase;
-
-} 
-.images{
-     height: 70px;
-     width: 70px;
-    margin-right: 100px;
-    margin-left: 100px;
-    padding: 10px;
-    flex-wrap:wrap;
-}
-
-
-
+   
 /*on 30 08/2019*/
 
 
