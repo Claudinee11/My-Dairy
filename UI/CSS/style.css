@@ -98,11 +98,7 @@ font-size:70px;
     padding: 40px;
     color: #fff;
     margin-top: 120px;
-}
-.wraps h2{
-    text-transform: uppercase;
-    color: bisque;
-}
+
 .wraps textarea{
     resize: none;
     height: 120px;
@@ -126,6 +122,7 @@ input[type=text],input[type=password], input[type=email]{
     margin: 2px;
     font-weight: bold;
 }
+
 .required{
     display: flex;
      justify-content: center; 
@@ -226,6 +223,28 @@ input[type=text],input[type=password], input[type=email]{
     margin-top: 70px;
 }
 
+.changes{
+    text-align: center; 
+   flex-wrap: wrap;
+   padding: 20px;
+}
+.changes a{
+ text-decoration: none;
+ color: #ffffff;
+ opacity: 0.9;
+   text-transform: uppercase;
+
+}
+
+/*on 109 2019 working on entry*/
+
+#controls h1 {
+    text-align: center;
+    justify-content: center;
+    color: #ddd;
+    margin-bottom: 5px;
+    margin-top: 70px;
+}
 
 
 /*footer*/
