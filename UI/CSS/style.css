@@ -79,16 +79,14 @@ font-size:70px;
     background-color: grey;
     display: inline-flex;
     justify-content: space-around;
+    height: 100vh;
+    width: 100vw;
+    justify-content: justify;
     
 }
-
-.av h1{
-    color:#ffffff;
-    text-align: center;
-    justify-content: center;
-    margin-left: 15px;
-    flex-wrap:wrap;
-
+.alin-form h1{
+    color: bisque;
+    text-transform: uppercase;
 }
 /* sign up and sign in*/
 .wraps{
@@ -99,8 +97,18 @@ font-size:70px;
     box-sizing: border-box;
     padding: 40px;
     color: #fff;
-    margin-top: 100px;
+    margin-top: 120px;
 }
+.wraps h2{
+    text-transform: uppercase;
+    color: bisque;
+}
+.wraps textarea{
+    resize: none;
+    height: 120px;
+    background: rgba(0,0,0,0.8);
+    outline:none;
+ }
 h2{
     text-align: center;
 
@@ -115,10 +123,10 @@ input[type=text],input[type=password], input[type=email]{
     border-bottom: 1px dotted #fff;
     color: #fff;
     border-radius: 5px;
-    margin: 5px;
+    margin: 2px;
     font-weight: bold;
 }
-.types{
+    .types{
     width: 100%;
     box-sizing: border-box;
     padding: 10px 0;
@@ -126,7 +134,7 @@ input[type=text],input[type=password], input[type=email]{
     outline:none;
     border: none;
     background: #60adde;
-    opacity: 0.7;
+    opacity: 0.9;
     border-radius: 20px;
     font-size: 20px;
     color: #fff;
@@ -134,6 +142,7 @@ input[type=text],input[type=password], input[type=email]{
 .types a:hover{
     background: #003366;
     opacity: 0.7;
+    color: white;
 }
 .types a{
     text-decoration: none;
@@ -161,55 +170,17 @@ input[type=text],input[type=password], input[type=email]{
     padding: 10px;
     flex-wrap:wrap;
 }
-/*on 29 08/2019*/
 
-.contact-us{
-    border: grey solid 1px;
-    border-radius: 0.5em;
-    background-color:grey;
-    margin: 0 auto;
-    justify-content: justify;
-    flex-wrap: wrap;
-}
-.contact-us h5{
-    text-transform: uppercase;
-    text-align: center;
-    color: bisque;
-}
 
-form input{
-    width: 90%;
-    height: 2em;;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 0.5em;
-    border: hidden;
 
-}
-form label{
-    color:black;
-    text-transform: uppercase;
-}
- form .button{
-    width:30%;
-    margin-top:2em;
-   margin-left:40%;
-   margin-right: 40%;
-   font-size:20px;
-   color: bisque;
-   background-color: grey;
-   text-transform: uppercase;
-  
-   
-} 
-.mess{
-    background-color: grey;
-}
+/*on 30 08/2019*/
+
+
 .required{
     display: flex;
      justify-content: center; 
      flex-wrap: wrap;
-     margin-top: 100px;
+     margin-top: 20px;
      
 
 }
@@ -218,7 +189,6 @@ form label{
     background: grey;
     padding: 10px;
     border: 1em;
-    
 } 
 .our-need p{
     justify-content: flex-start;
@@ -226,22 +196,85 @@ form label{
     color: bisque;
     padding: 20px;
     text-transform: uppercase;
-   
-    
-
 }
+.our-need a{
+    text-decoration: none; 
+}
+.our-need a p:hover{
+    background-color: #003366;
+    color: red;
+}
+
 .your-entry{
     display: inline-flexbox;
     background: #546354;
     flex-wrap: wrap;
 }
+.your-entry a{
+    text-decoration: none;
+    margin-right: 30px;
+    justify-content: center;
+}
+.your-entry a:hover{
+    color:orange;
+    background: #003366;
+    
+    
+
+}
 .buttons{
     padding: 10px;
-    margin-left: 120px;
+    margin-left: 70px;
     text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 15px;
     
 }
+/*on 31 august 2019*/
+.changes{
+    text-align: center; 
+   flex-wrap: wrap;
+   padding: 20px;
+}
+.changes a{
+ text-decoration: none;
+ color: #ffffff;
+ opacity: 0.9;
+   text-transform: uppercase;
 
+}
+/*on 01 sept/2019*/
+/*about us*/
+.img-wrap{
+    width: 100%;
+
+}
+.img-wrap img{
+    width: 40%;
+   height: 30%; 
+    padding: 50px;
+    border-radius: 70%;
+   
+}
+ #about-us{
+    display: flex;
+    justify-content: center;
+     align-items: center; 
+}
+ 
+.texts{
+    text-transform: initial;
+     margin-top: 30px;
+}
+/*on 109 2019 working on entry*/
+
+#controls h1 {
+    text-align: center;
+    justify-content: center;
+    color: #ddd;
+    margin-bottom: 5px;
+    margin-top: 70px;
+}
 
 
 /*footer*/
