@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-/*header and background*/
+/*body and background*/
 header{
     background-image: url('../assets/207705-167160-R3L8T8D-1000-McCarleyBeth_Travel_ANightAtDeadvlei_SS-1000-541576bc48-1484729696.jpg');
     height: 100vh;
@@ -33,9 +33,7 @@ ul li a{
     
       
 }
-ul li a:hover{
-    color: bisque;
-}
+
 ul li .active a{
     background-color: #fff;
     color: #000;
@@ -109,8 +107,11 @@ font-size:70px;
 .wraps textarea{
     resize: none;
     height: 120px;
-    background: rgba(0,0,0,0.8);
+     background: rgba(0,0,0,0.10);
+     color: white;
+     opacity: 0.9;
     outline:none;
+    
  }
 h2{
     text-align: center;
