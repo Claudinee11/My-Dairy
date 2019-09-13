@@ -1,6 +1,6 @@
 
 import dairies from '../models/dairies';
-//post your dairy
+
   const postDairy=(req, res)=>{
     console.log(req.body)
     if(!req.body.title)
