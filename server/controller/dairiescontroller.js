@@ -2,6 +2,7 @@
 import dairies from '../models/dairies';
 
 class getcontroller{
+
 static getDairy(req, res) {
     res.status(200).send({
       success: 'true',
@@ -47,8 +48,7 @@ static getDairy(req, res) {
         success: 'false',
         message: 'dairy not found',
       });
-  
-   
+
   };
 
  

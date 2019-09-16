@@ -1,13 +1,6 @@
 import express from 'express';
- import getcontroller from '../controller/dairiescontroller';
-//  import  getDairyId from '../controller/dairiesidcontr';
-//  import delDairy from '../controller/dairiesdelcontroller';
- 
-//  import postDairy from '../controller/dairiesposcontr';
-//  import putDairy from '../controller/dairputcontr';
-//  import express from 'express';
 
-// const routes=express.Router();
+ import getcontroller from '../controller/dairiescontroller';
 
 const app = express.Router();
 
