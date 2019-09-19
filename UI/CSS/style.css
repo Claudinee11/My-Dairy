@@ -124,12 +124,11 @@ input[type=text],input[type=password], input[type=email]{
     width: 100%;
     box-sizing: border-box;
     padding: 12px 5px;
-    background: rgba(0,0,0,0.10);
+    background: rgba(0,0,0,0.10); 
     outline:none;
     border: none;
-    border-bottom: 1px dotted #fff;
+    border-bottom: dotted #fff;
     color: #fff;
-    border-radius: 5px;
     margin: 2px;
     font-weight: bold;
 }
@@ -292,6 +291,63 @@ input[type=text],input[type=password], input[type=email]{
 .texts{
     text-transform: initial;
      margin-top: 30px;
+}
+
+/* on 19 09 2019 */
+
+.entries{
+    display: flex;
+     justify-content: center; 
+     flex-wrap: wrap;
+     margin-top: 20px;
+     
+
+}
+ .needed{
+    justify-content: flex-start;
+    background: grey;
+    padding: 10px;
+    border: 1em;
+} 
+.needed p{
+    justify-content: flex-start;
+    justify-items: center;
+    color: bisque;
+    padding: 20px;
+    text-transform: uppercase;
+}
+.needed a{
+    text-decoration: none; 
+}
+.needed a p:hover{
+    background-color: #003366;
+    color: red;
+}
+
+.my-entry{
+    display: inline-flexbox;
+    background: #546354;
+    flex-wrap: wrap;
+}
+.my-entry a{
+    text-decoration: none;
+    margin-right: 30px;
+    justify-content: center;
+}
+.my-entry a:hover{
+    color:orange;
+    background: #003366;
+    
+    
+
+}
+.buttons{
+    padding: 10px;
+    margin-left: 70px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 15px;
+    
 }
 
 /*footer*/
