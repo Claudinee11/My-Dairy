@@ -34,8 +34,9 @@ ul li a{
       
 }
 ul li a:hover{
-    color:bisque;
+  color:burlywood;
 }
+
 ul li .active a{
     background-color: #fff;
     color: #000;
@@ -123,12 +124,11 @@ input[type=text],input[type=password], input[type=email]{
     width: 100%;
     box-sizing: border-box;
     padding: 12px 5px;
-    background: rgba(0,0,0,0.10);
+    background: rgba(0,0,0,0.10); 
     outline:none;
     border: none;
-    border-bottom: 1px dotted #fff;
+    border-bottom: dotted #fff;
     color: #fff;
-    border-radius: 5px;
     margin: 2px;
     font-weight: bold;
 }
@@ -177,30 +177,26 @@ input[type=text],input[type=password], input[type=email]{
     flex-wrap:wrap;
 }
 
-
-
-/*on 30 08/2019*/
-
-
-.required{
+.required {
+    
     display: flex;
-     justify-content: center; 
-     flex-wrap: wrap;
-     margin-top: 20px;
-     
-
 }
  .our-need{
-    justify-content: flex-start;
-    background: grey;
-    padding: 10px;
-    border: 1em;
+
+    background-color:grey;
+    width: 20vw;
+    height: 82vh;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+
 } 
 .our-need p{
     justify-content: flex-start;
     justify-items: center;
     color: bisque;
-    padding: 20px;
+    padding: 40px;
+
     text-transform: uppercase;
 }
 .our-need a{
@@ -208,26 +204,50 @@ input[type=text],input[type=password], input[type=email]{
 }
 .our-need a p:hover{
     background-color: #003366;
-    color: red;
+    color:#ddd;
 }
 
-.your-entry{
-    display: inline-flexbox;
-    background: #546354;
-    flex-wrap: wrap;
-}
 .your-entry a{
     text-decoration: none;
     margin-right: 30px;
     justify-content: center;
 }
 .your-entry a:hover{
-    color:orange;
+    
     background: #003366;
-    
-    
-
 }
+.your-entry {
+    display: flex;
+    margin: 20px;
+    text-align: justify;
+    /* margin-left: 30px; */
+    
+}
+.first {
+    background-color: #FFF;
+    padding: 30px;
+    margin: 0px 10px;
+    
+}
+
+.second {
+    background-color: #FFF;
+    padding: 30px;
+    margin: 0px 10px;
+    
+}
+.third {
+    background-color: #FFF;
+    padding: 30px;
+    margin: 0px 10px;
+    
+}
+#time {
+    padding: 3px 3px 3px 160px;
+}
+
+
+
 .buttons{
     padding: 10px;
     margin-left: 70px;
@@ -272,16 +292,63 @@ input[type=text],input[type=password], input[type=email]{
     text-transform: initial;
      margin-top: 30px;
 }
-/*on 109 2019 working on entry*/
 
-#controls h1 {
-    text-align: center;
-    justify-content: center;
-    color: #ddd;
-    margin-bottom: 5px;
-    margin-top: 70px;
+/* on 19 09 2019 */
+
+.entries{
+    display: flex;
+     justify-content: center; 
+     flex-wrap: wrap;
+     margin-top: 20px;
+     
+
+}
+ .needed{
+    justify-content: flex-start;
+    background: grey;
+    padding: 10px;
+    border: 1em;
+} 
+.needed p{
+    justify-content: flex-start;
+    justify-items: center;
+    color: bisque;
+    padding: 20px;
+    text-transform: uppercase;
+}
+.needed a{
+    text-decoration: none; 
+}
+.needed a p:hover{
+    background-color: #003366;
+    color: red;
 }
 
+.my-entry{
+    display: inline-flexbox;
+    background: #546354;
+    flex-wrap: wrap;
+}
+.my-entry a{
+    text-decoration: none;
+    margin-right: 30px;
+    justify-content: center;
+}
+.my-entry a:hover{
+    color:orange;
+    background: #003366;
+    
+    
+
+}
+.buttons{
+    padding: 10px;
+    margin-left: 70px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 15px;
+    
+}
 
 /*footer*/
 .footer{
