@@ -12,7 +12,7 @@ static getDairy(req, res) {
   };
 
   static dairyId(req, res){
-    const id = parseInt(req.params.id, 10);
+    const id = parseInt(req.params.id);
     dairies.map((dairy) => {
       if (dairy.id === id) {
         return res.status(200).send({
@@ -22,6 +22,7 @@ static getDairy(req, res) {
         });
       } 
   });
+  
    return res.status(404).send({
      success: 'false',
      message: 'dairie does not exist',
@@ -30,8 +31,9 @@ static getDairy(req, res) {
 
 
 
+
   static delDairy(req, res){
-    const id = parseInt(req.params.id, 10);
+    const id = parseInt(req.params.id);
   
     dairies.map((dairie, index) => {
       if (dairie.id === id) {
@@ -63,15 +65,24 @@ static postDairy(req, res){
         message: 'title is required'
       });
     }
+
+    else if(!req.body.date)
+    {     return res.status(400).send({
+     success: 'false',
+       message: 'date is required'
+     });
+   }
      else if(!req.body.description) {
       return res.status(400).send({
         success: 'false',
         message: 'description is required'
      });
     }  
+    else  {
     const dairie = {    
       id: dairies.length + 1,
     title: req.body.title,
+    date:req.body.date,
     description: req.body.description
   }
   dairies.push(dairie);
@@ -81,10 +92,11 @@ static postDairy(req, res){
     dairies,
   })
   };
+}
 
   
 static putDairy(req, res){
-  const id = parseInt(req.params.id, 10);
+  const id = parseInt(req.params.id);
   let dairieFound;
   let itemIndex;
   dairies.map((dairie, index) => {
@@ -106,16 +118,25 @@ static putDairy(req, res){
       success: 'false',
       message: 'title is required',
     });
-  } else if (!req.body.description) {
+  } 
+  else if(!req.body.date)
+  {     return res.status(400).send({
+   success: 'false',
+     message: 'date is required'
+   });
+ }
+  
+  else if (!req.body.description) {
     return res.status(400).send({
       success: 'false',
       message: 'description is required',
     });
   }
-
+ else {
   const updateddairie = {
     id: dairieFound.id,
     title: req.body.title || dairieFound.title,
+    date:req.body.date || dairieFound.date,
     description: req.body.description || dairieFound.description,
   };
 
@@ -127,6 +148,7 @@ static putDairy(req, res){
     updateddairie,
   });
 };
+}
 }
 
 
