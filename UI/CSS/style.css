@@ -5,7 +5,7 @@
 
 /*body and background*/
 header{
-    background-image: url('../assets/207705-167160-R3L8T8D-1000-McCarleyBeth_Travel_ANightAtDeadvlei_SS-1000-541576bc48-1484729696.jpg');
+    background-image: url('../assets/notebook-3397135_960_720.jpg');
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -25,7 +25,7 @@ ul li{
 }
 ul li a{
     text-decoration: none;
-    color: #fff;
+    color:black;
     text-transform: uppercase;
     flex-grow: 1px; 
     flex-wrap: wrap; 
@@ -34,7 +34,7 @@ ul li a{
       
 }
 ul li a:hover{
-  color:burlywood;
+  color: rgb(11, 180, 11);
 }
 
 ul li .active a{
@@ -51,21 +51,45 @@ ul li .active a{
 }
 .logo img{
      float: left; 
-    width: 80px;
+    width: 150px;
      height: auto; 
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 50px;
 }
 .title{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    
+     top: 50%;
+    left: 50%; 
+     transform: translate(-50%,-50%); 
 }
 .title h1{
-color:#fff;
-font-size:70px;
+color:black;
+font-size:35px;
+text-transform: uppercase;
+}
 
+.title h2{
+    color: black;
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+.title a{
+    padding: 1%;
+    background-color:#546354;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+.title a:hover{
+    color: white;
+    background-color: rgb(2, 42, 2);
 }
 
  .Your-day{
@@ -97,29 +121,17 @@ font-size:70px;
     max-width: 350px;
     border-radius: 20px;
     margin: auto;
-    background: rgba(0,0,0,0.8);
+    background: #546354;
     box-sizing: border-box;
     padding: 40px;
-    color: #fff;
+    color: #ddd;
     margin-top: 120px;
 }
 .wraps h2{
     text-transform: uppercase;
-    color: bisque;
+    color: black;
 }
-.wraps textarea{
-    resize: none;
-    height: 120px;
-     background: rgba(0,0,0,0.10);
-     color: white;
-     opacity: 0.9;
-    outline:none;
-    
- }
-h2{
-    text-align: center;
 
-}
 input[type=text],input[type=password], input[type=email]{
     width: 100%;
     box-sizing: border-box;
@@ -128,7 +140,7 @@ input[type=text],input[type=password], input[type=email]{
     outline:none;
     border: none;
     border-bottom: dotted #fff;
-    color: #fff;
+    color: white;
     margin: 2px;
     font-weight: bold;
 }
@@ -155,7 +167,7 @@ input[type=text],input[type=password], input[type=email]{
     color: #fff;
 }
 #main{
-    text-decoration: #ddd4d4;
+    
      display: flex; 
     flex-wrap: wrap;
     font-size: 15px;
@@ -164,7 +176,7 @@ input[type=text],input[type=password], input[type=email]{
 #main a{
     text-decoration: none;
     margin-left:15px;
-    color: #456990;
+    color: black;
     text-transform: uppercase;
 
 } 
@@ -352,11 +364,11 @@ input[type=text],input[type=password], input[type=email]{
 
 /*footer*/
 .footer{
-    background-color: rgb(69, 69, 70);
+    background-color: rgb(220, 220, 230);
     padding: 20px;
-    color: bisque;
+    color: rgb(0, 128, 0);
     height: 1vh;
-    font-size: 10px;
+    font-size: 15px;
     text-align: center; 
     
 } 
