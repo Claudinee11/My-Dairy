@@ -151,7 +151,7 @@ input[type=text],input[type=password], input[type=email]{
     margin-top: 30px;
     outline:none;
     border: none;
-    background: #60adde;
+    background: green;
     opacity: 0.9;
     border-radius: 20px;
     font-size: 20px;
@@ -282,23 +282,7 @@ input[type=text],input[type=password], input[type=email]{
 
 }
 
-/*about us*/
-.img-wrap{
-    width: 100%;
 
-}
-.img-wrap img{
-    width: 40%;
-   height: 30%; 
-    padding: 50px;
-    border-radius: 70%;
-   
-}
- #about-us{
-    display: flex;
-    justify-content: center;
-     align-items: center; 
-}
  
 .texts{
     text-transform: initial;
