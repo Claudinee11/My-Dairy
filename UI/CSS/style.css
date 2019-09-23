@@ -182,15 +182,6 @@ input[type=text],input[type=password], input[type=email]{
     text-transform: uppercase;
 
 } 
-.images{
-     height: 70px;
-     width: 70px;
-    margin-right: 100px;
-    margin-left: 100px;
-    padding: 10px;
-    flex-wrap:wrap;
-}
-
 .required {
     
     display: flex;
