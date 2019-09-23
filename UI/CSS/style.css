@@ -232,11 +232,20 @@ input[type=text],input[type=password], input[type=email]{
 }
 .your-entry {
     display: flex;
-    margin: 20px;
+     margin-top: 10px; 
     text-align: justify;
-    /* margin-left: 30px; */
+     margin-left: 15px; 
     
 }
+.your-entries {
+    display: flex;
+     margin-top: 10px; 
+    text-align: justify;
+     margin-left: 500px; 
+     flex-wrap:wrap;
+    
+}
+
 .first {
     background-color: #FFF;
     padding: 30px;
@@ -260,16 +269,6 @@ input[type=text],input[type=password], input[type=email]{
     padding: 3px 3px 3px 160px;
 }
 
-
-
-.buttons{
-    padding: 10px;
-    margin-left: 70px;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    margin-top: 15px;
-    
-}
 /*on 31 august 2019*/
 .changes{
     text-align: center; 
@@ -283,13 +282,6 @@ input[type=text],input[type=password], input[type=email]{
    text-transform: uppercase;
 
 }
-
-
- 
-/* .texts{
-    text-transform: initial;
-     margin-top: 30px;
-} */
 
 /* on 19 09 2019 */
 
@@ -339,15 +331,46 @@ input[type=text],input[type=password], input[type=email]{
     
 
 }
-.buttons{
+ .buttons{
+     display: flex;
+     flex-wrap: wrap;
     padding: 10px;
-    margin-left: 70px;
+    margin-left: 600px;
     text-transform: uppercase;
     margin-bottom: 40px;
     margin-top: 15px;
+    background: #546354;
     
+    
+} 
+.buttons a{
+    color: white;
+    font-weight:bold;
+    text-decoration: none;
+
+   
 }
 
+.an-entry{
+  
+  display:flex;
+  flex-direction:row;
+ 
+
+
+}
+.an-entry input{
+    background:rgb(187, 203, 209);
+    outline:none;
+    border: none;
+    font-weight:italic;
+    color:white;
+    width:600px;
+    margin-left: 500px;
+    flex-wrap: wrap;
+   
+
+}
 
 
 /*footer*/
