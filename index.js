@@ -1,9 +1,9 @@
+import bodyParser from 'body-parser';
+
+import route from './server/routers/dairyroute';
+
  const express = require('express');
  
- import route from './server/routers/dairyroute';
-
-  import bodyParser from 'body-parser';
-
 const app = express();
 
 app.use(bodyParser.json());

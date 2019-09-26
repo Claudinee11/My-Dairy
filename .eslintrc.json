@@ -10,14 +10,42 @@
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
-    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
-    "plugins": [
-        "@typescript-eslint"
-    ],
     "rules": {
+      "indent":"off",
+      "linebreak-style":"off",
+      "quotes":"off",
+      "no-multi-spaces":"off",
+      "key-spacing":"off",
+      "comma-dangle":"off",
+      "space-infix-ops":"off",
+      "no-trailing-spaces":"off",
+      "no-undef":"off",
+      "eol-last":"off",
+      "arrow-parens":"off",
+      "no-unused-expressions":"off",
+      "no-shadow":"off",
+      "operator-linebreak":"off",
+      "semi":"off",
+      "padded-blocks":"off",
+      "space-before-blocks":"off",
+      "no-extra-semi":"off",
+      "brace-style":"off",
+      "array-callback-return":"off",
+      "keyword-spacing":"off",
+      "no-multiple-empty-lines":"off",
+      "consistent-return":"off",
+      "radix":"off",
+      "no-else-return":"off",
+      "no-console":"off",
+      "object-curly-spacing":"off"
+     
+
+
+
+
     }
 }
