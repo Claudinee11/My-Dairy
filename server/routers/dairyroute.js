@@ -5,10 +5,10 @@ import express from 'express';
 const app = express.Router();
 
 
-app.get('/api/v1/dairy',getcontroller.getDairy);
-app.get('/api/v1/dairy/:id',getcontroller.dairyId);
-app.delete('/api/v1/dairy/:id',getcontroller.delDairy);
-app.post('/api/v1/dairy',getcontroller.postDairy);
-app.put('/api/v1/dairy/:id', getcontroller.putDairy);
+app.get('/api/v1/entries', getcontroller.getDairy);
+app.get('/api/v1/entries/:id', getcontroller.getdairyId);
+app.delete('/api/v1/entries/:id', getcontroller.deleteDairy);
+app.post('/api/v1/entries', getcontroller.postDairy);
+app.put('/api/v1/entries/:id', getcontroller.putDairy);
 
  export default app; 
