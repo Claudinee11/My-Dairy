@@ -10,6 +10,7 @@
     "test": "mocha --require @babel/register ./server/tests/*.spec.js --exit",
     "start": "babel-node index.js ",
     "dev": "nodemon --exec babel-node index.js",
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "elint": "eslint ./server || true"
   },
   "author": "Claudine",
@@ -22,6 +23,7 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "istanbul": "^0.4.5",
     "jsonwebtoken": "^8.5.1",
     "uuid": "^3.3.3"
   },
@@ -29,10 +31,12 @@
     "@babel/register": "^7.6.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "coveralls": "^3.0.6",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.0",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.2",
+    "nyc": "^14.1.1"
   }
 }
