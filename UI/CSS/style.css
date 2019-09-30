@@ -232,7 +232,7 @@ input[type=text],input[type=password], input[type=email]{
     display: flex;
      margin-top: 10px; 
     text-align: justify;
-     margin-left: 500px; 
+     margin-left: 400px; 
      flex-wrap:wrap;
     
 }
@@ -257,7 +257,9 @@ input[type=text],input[type=password], input[type=email]{
     
 }
 #time {
-    padding: 3px 3px 3px 160px;
+    padding: 3px;
+    font-size: 20px;
+
 }
 
 /*on 31 august 2019*/
@@ -325,11 +327,10 @@ input[type=text],input[type=password], input[type=email]{
  .buttons{
      display: flex;
      flex-wrap: wrap;
-    padding: 10px;
-    margin-left: 600px;
+    padding: 5px;
     text-transform: uppercase;
     margin-bottom: 40px;
-    margin-top: 15px;
+    margin-top: 10px;
     background: #546354;
     
     
@@ -343,25 +344,58 @@ input[type=text],input[type=password], input[type=email]{
 }
 
 .an-entry{
-  
-  display:flex;
-  flex-direction:row;
- 
-
-
-}
-.an-entry input{
-    background:rgb(187, 203, 209);
-    outline:none;
-    border: none;
-    font-weight:italic;
-    color:white;
-    width:600px;
-    margin-left: 500px;
-    flex-wrap: wrap;
+    display: flex;
+    margin-top: 10px; 
+   text-align: justify;
+    margin-left: 400px; 
+    flex-wrap:wrap;
    
-
 }
+.entry-button{
+    height: 38px;
+    background: #546354;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px; 
+    color:#fff;
+    margin:5px;
+    margin-left:500px; 
+    text-transform:uppercase;
+    
+}
+.entries-button{
+    height: 38px;
+    background: #546354;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px; 
+    color:#fff;
+    margin:5px; 
+    text-transform:uppercase;
+    text-align: center;
+    margin-top:20px;
+}
+
+
+.entry_button{
+    height: 38px;
+    background: #546354;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px; 
+    color:#fff;
+    margin:5px; 
+    text-transform:uppercase;
+    text-align: center;
+}
+
+.entry_button a {
+    color:#fff;
+}
+.entry_button a:hover{
+    background:#546354;
+}
+
 
 
 /*footer*/

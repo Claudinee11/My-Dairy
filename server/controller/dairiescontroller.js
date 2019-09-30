@@ -11,18 +11,18 @@ static getDairy(req, res) {
     });
   };
 
-  static dairyId(req, res){
+  static getdairyId(req, res){
     const id = parseInt(req.params.id);
-    dairies.map((dairy) => {
-      if (dairy.id === id) {
+
+    const requestedDiary = dairies.find((diary) => diary.id === id);
+    if(requestedDiary) {
         return res.status(200).send({
-          success: 'true',
-          message: 'dairy retrieved successfully',
-          dairy,
-        });
-      } 
-  });
-  
+        success: 'true',
+        message: 'dairy retrieved successfully',
+        dairy: requestedDiary,
+    });
+  }
+
    return res.status(404).send({
      success: 'false',
      message: 'dairie does not exist',
@@ -32,19 +32,18 @@ static getDairy(req, res) {
 
 
 
-  static delDairy(req, res){
+  static deleteDairy(req, res){
     const id = parseInt(req.params.id);
-  
-    dairies.map((dairie, index) => {
-      if (dairie.id === id) {
+ 
+    const dairyToDelete = dairies.find((dairy) => dairy.id === id);
+    if (dairyToDelete) {
+      const index = dairies.indexOf(dairyToDelete)
         dairies.splice(index, 1);
          return res.status(200).send({
            success: 'true',
            message: 'dairy deleted successfuly',
          });
-      }
-    });
-  
+    }
   
       return res.status(404).send({
         success: 'false',
@@ -57,7 +56,6 @@ static getDairy(req, res) {
 
 
 static postDairy(req, res){
-    console.log(req.body)
     if(!req.body.title)
      {    
         return res.status(400).send({
@@ -99,7 +97,7 @@ static putDairy(req, res){
   const id = parseInt(req.params.id);
   let dairieFound;
   let itemIndex;
-  dairies.map((dairie, index) => {
+  dairies.find((dairie, index) => {
     if (dairie.id === id) {
       dairieFound = dairie;
       itemIndex = index;
@@ -142,7 +140,7 @@ static putDairy(req, res){
 
   dairies.splice(itemIndex, 1, updateddairie);
 
-  return res.status(201).send({
+  return res.status(200).send({
     success: 'true',
     message: 'dairy added successfully',
     updateddairie,
