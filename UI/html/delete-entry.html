@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../CSS/style.css">
-    <title>delete entry</title>
+    <title>edit entry</title>
 </head>
-
 <body>
     <header>
         <div class="main">
-            <div class="logo">
-                <a href="../html/index.html"><img src="../assets/Capture.PNG" alt=""> </a>
+        <div class="logo">
+        <a href="../html/index.html"><img src="../assets/Capture.PNG" alt=""> </a> 
+        </div>
+         <div class="header"> 
+            <ul>   
+                <li class="active"> <a href="../html/index.html">logout</a> </li>
+
+            </ul> <br><br><br><br> <br>
+        
+            <div class="an-entry">
+                <textarea name="your diary"  cols="83" rows="2"> Dear diary</textarea>
+        
+            
             </div>
-            <div class="header">
-                <ul>
-                    <li> <a href="../html/view-all-entry.html">view all entry</a></li>
-                    <li> <a href="../html/edit-entry.html">edit entry</a></li>
-                    <li> <a href="../html/delete-entry.html">delete entry</a></li>
-                    <li class="active"> <a href="../html/index.html">logout</a> </li>
-
-                </ul> <br><br><br><br> <br>
-
-                <div class="an-entry">
-
-                    <input type="text" placeholder="title">
+        
+            <div class="your-entries">
+                <textarea name="your dairy" id="1" cols="83" rows="20">
+                 I've been really productive today, a nice change of pace from my last two week of depression and lethargy.
+                I feel something good is about to happen and I can't help but feel positive.
+            Unfortunately, I know this is temporary,but I like this feeling...    
+                </textarea> <br> 
                 </div>
-                <div class="required">
+                  
+                <button class="entry-button" type="submit"> delete </button>
+                <button class="entries-button" type="submit"> cancel </button>
+            </div> 
+            
+    
+             
+          
 
-                </div>
-                <div class="your-entries">
-                    <textarea name="your dairy" id="1" cols="83" rows="20"></textarea>
-                </div>
-            </div>
-            <div>
-                <button class="buttons" type="submit"> <a href="../html/delete-entry.html"> delete </button> </a>
-            </div>
-
-
-    </header>
+</header>
 
 
 
-    <div class="footer">
-        <h2>Copyright Dairy@2019</h2>
-    </div>
-
+        <div class="footer">
+            <h2>Copyright Dairy@2019</h2>
+        </div> 
+        
 </body>
-
 </html>
