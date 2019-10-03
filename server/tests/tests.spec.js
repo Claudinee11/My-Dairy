@@ -22,6 +22,7 @@ const newDairy = {
         .end((err, res) => {
           expect(res.status).to.equals(200);
           expect(res.body).to.be.an('object');
+         
           done();
         });
     });
@@ -41,7 +42,19 @@ const newDairy = {
             done();
           }).catch((err) => console.log(err));
       });
+
+      it('user get entry not found', done => {
+        chai
+        .request(app)
+        .get('/api/v1/entries/10')
+        .then((res) => {
+        expect(res.status).to.equals(404);
+        expect(res.body.message).not.to.be.null;
+        done();
+      }).catch((err) => console.log(err));
+      })
     });
+
     describe('users add entry', () => {
 
     it('POST /users should create their own entries', done => {
@@ -57,11 +70,11 @@ const newDairy = {
          expect(res.body.title).not.to.be.null;
          expect(res.body.date).not.to.be.null;
          expect(res.body.description).not.to.be.null;
-
           done();
         });
     });
   });
+
   describe('Users Delete', () => {
     it('Delete /users should delete entries', done => {
       chai
@@ -70,8 +83,20 @@ const newDairy = {
         .end((err, res) => {
          expect(res.status).to.equals(200);
          expect(res.body.message).not.to.be.null;
+         
           done();
         });
+    });
+    it('Delete user delete entry not found', done => {
+      chai
+      .request(app)
+      .delete('/api/v1/entries/10')
+      .then((res) => {
+      expect(res.status).to.equals(404);
+      expect(res.body.message).not.to.be.null;
+      
+      done();
+    }).catch((err) => console.log(err));
     });
   });
 
@@ -79,7 +104,7 @@ const newDairy = {
     it('UPDATE /users should be able to update entries', done => {
       const dairies =
         {
-            id:1,
+        
         title: 'Dear diaries',
         date: 'on 26 09 2019',
         description: 'get diaries'
@@ -94,7 +119,29 @@ const newDairy = {
           expect(res.body.title).not.to.be.null;
           expect(res.body.date).not.to.be.null;
           expect(res.body.description).not.to.be.null;
+          
           done();
         });
     });
+    it('UPDATE/user modify entry not found', done => {
+      const diary =
+      {
+      
+      title: 'Dear diary',
+      date: 'on 02 10 2019',
+      description: 'get diary'
+    }
+      chai
+      .request(app)
+      .put('/api/v1/entries/5')
+      .send(diary)
+      .then((res) => {
+     expect(res.status).to.equals(404);
+     expect(res.body.message).not.to.be.null;
+     done();
+      }).catch((err) => console.log(err));
+    });
+  
   });
+
+  

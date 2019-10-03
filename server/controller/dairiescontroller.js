@@ -1,4 +1,4 @@
-
+import validateEntry from '../validation/validation-entry';
 import dairies from '../models/dairies';
 
 class getcontroller{
@@ -56,44 +56,29 @@ static getDairy(req, res) {
 
 
 static postDairy(req, res){
-    if(!req.body.title)
-     {    
-        return res.status(400).send({
-      success: 'false',
-        message: 'title is required'
-      });
-    }
-
-    else if(!req.body.date)
-    {     return res.status(400).send({
-     success: 'false',
-       message: 'date is required'
-     });
-   }
-     else if(!req.body.description) {
-      return res.status(400).send({
-        success: 'false',
-        message: 'description is required'
-     });
-    }  
-    else  {
+  const { error } = validateEntry.validate(req.body);
+  if (error) {
+    return res.status(400).json({ status: 400, error: error.details[0].message });
+  }
     const dairie = {    
       id: dairies.length + 1,
     title: req.body.title,
     date:req.body.date,
     description: req.body.description
-  }
+  };
   dairies.push(dairie);
   return res.status(201).send({
     success: 'true',
     message: 'dairy added successfully',
     dairies,
-  })
+  });
   };
-}
 
-  
 static putDairy(req, res){
+ const { error } = validateEntry.validate(req.body);
+ if (error) {
+   return res.status(400).json({ status: 400, error: error.details[0].message });
+ }
   const id = parseInt(req.params.id);
   let dairieFound;
   let itemIndex;
@@ -103,34 +88,14 @@ static putDairy(req, res){
       itemIndex = index;
     }
   });
-
   if (!dairieFound) {
     return res.status(404).send({
       success: 'false',
-      message: 'dairy not found',
+      message: 'diary not found',
     });
   }
 
-  if (!req.body.title) {
-    return res.status(400).send({
-      success: 'false',
-      message: 'title is required',
-    });
-  } 
-  else if(!req.body.date)
-  {     return res.status(400).send({
-   success: 'false',
-     message: 'date is required'
-   });
- }
-  
-  else if (!req.body.description) {
-    return res.status(400).send({
-      success: 'false',
-      message: 'description is required',
-    });
-  }
- else {
+
   const updateddairie = {
     id: dairieFound.id,
     title: req.body.title || dairieFound.title,
@@ -147,10 +112,7 @@ static putDairy(req, res){
   });
 };
 }
-}
-
-
-  export default getcontroller;
+export default getcontroller;
   
 
   

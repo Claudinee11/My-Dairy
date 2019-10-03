@@ -16,6 +16,7 @@ ul{
      display: flex;   
     font-weight: bolder;
     justify-content: flex-end;
+    height: 160px;
 }
 ul li{
     display: inline-block;
@@ -113,7 +114,7 @@ input[type=text],input[type=password], input[type=email]{
     width: 100%;
     box-sizing: border-box;
     padding: 10px 0;
-    margin-top: 30px;
+    margin-top: 20px;
     outline:none;
     border: none;
     background: green;
@@ -149,10 +150,7 @@ input[type=text],input[type=password], input[type=email]{
     margin-right: 30px;
     justify-content: center;
 }
-/* .your-entry a:hover{
-    
-    background: #003366;
-} */
+
 .your-entry {
     display: flex;
     margin-top: 30px; 
@@ -163,8 +161,9 @@ input[type=text],input[type=password], input[type=email]{
 .your-entries {
     display: flex;
      margin-top: 10px; 
-    text-align: justify;
-     flex-wrap:wrap; 
+     width:640px;
+    /* text-align: justify; */
+     flex-wrap:wrap;  
      position: absolute;
    top: 50%;
    left: 50%;
@@ -242,6 +241,7 @@ input[type=text],input[type=password], input[type=email]{
     text-transform:uppercase;
     border-radius:10px;
        
+
 }
 .entry_buttons{
  height: 38px; 
@@ -276,6 +276,16 @@ text-transform:uppercase;
     border-radius:10px;
     box-sizing:5px;
 }
+.entry-button a{
+    text-decoration: none;
+    color:#fff;
+    font-size:20px;
+}
+
+.entries-button a{
+text-decoration: none;
+color: white;
+}
 .entry_button{
     height: 38px; 
     background: #546354;
@@ -307,5 +317,6 @@ text-transform:uppercase;
     color: rgb(0, 128, 0);
     height: 1vh;
     font-size: 15px;
-    text-align: center;    
+    text-align: center;  
+     
 } 
