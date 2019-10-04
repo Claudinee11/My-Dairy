@@ -1,38 +1,35 @@
 import validateEntry from '../validation/validation-entry';
 import dairies from '../models/dairies';
 
-class getcontroller{
+class getDiary{
 
-static getDairy(req, res) {
+static getallEntry(req, res) {
     res.status(200).send({
-      success: 'true',
-      message: 'dairy retrieved successfully',
+      status:200,
+      message: 'diary retrieved successfully',
        dairies,
     });
   };
 
-  static getdairyId(req, res){
+  static getspefiedEntry(req, res){
     const id = parseInt(req.params.id);
-
     const requestedDiary = dairies.find((diary) => diary.id === id);
     if(requestedDiary) {
         return res.status(200).send({
-        success: 'true',
+        status:200,
         message: 'dairy retrieved successfully',
         dairy: requestedDiary,
     });
   }
 
    return res.status(404).send({
-     success: 'false',
-     message: 'dairie does not exist',
+     status:404,
+     message: 'diarie does not exist',
     });
   }
 
 
-
-
-  static deleteDairy(req, res){
+  static deleteEntry(req, res){
     const id = parseInt(req.params.id);
  
     const dairyToDelete = dairies.find((dairy) => dairy.id === id);
@@ -40,14 +37,14 @@ static getDairy(req, res) {
       const index = dairies.indexOf(dairyToDelete)
         dairies.splice(index, 1);
          return res.status(200).send({
-           success: 'true',
-           message: 'dairy deleted successfuly',
+           status:200,
+           message: 'diary deleted successfuly',
          });
     }
   
       return res.status(404).send({
-        success: 'false',
-        message: 'dairy not found',
+      status:404,
+        message: 'diary not found',
       });
 
   };
@@ -55,7 +52,7 @@ static getDairy(req, res) {
  
 
 
-static postDairy(req, res){
+static addEntry(req, res){
   const { error } = validateEntry.validate(req.body);
   if (error) {
     return res.status(400).json({ status: 400, error: error.details[0].message });
@@ -68,13 +65,13 @@ static postDairy(req, res){
   };
   dairies.push(dairie);
   return res.status(201).send({
-    success: 'true',
-    message: 'dairy added successfully',
+    status:201,
+    message: 'diary added successfully',
     dairies,
   });
   };
 
-static putDairy(req, res){
+static modifyEntry(req, res){
  const { error } = validateEntry.validate(req.body);
  if (error) {
    return res.status(400).json({ status: 400, error: error.details[0].message });
@@ -90,7 +87,7 @@ static putDairy(req, res){
   });
   if (!dairieFound) {
     return res.status(404).send({
-      success: 'false',
+      status:404,
       message: 'diary not found',
     });
   }
@@ -106,13 +103,13 @@ static putDairy(req, res){
   dairies.splice(itemIndex, 1, updateddairie);
 
   return res.status(200).send({
-    success: 'true',
+    status:200,
     message: 'dairy added successfully',
     updateddairie,
   });
 };
 }
-export default getcontroller;
+export default getDiary;
   
 
   

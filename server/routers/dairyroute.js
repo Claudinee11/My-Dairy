@@ -1,14 +1,14 @@
 import express from 'express';
 
- import getcontroller from '../controller/dairiescontroller';
+import getDiary from '../controller/dairiescontroller';
 
 const app = express.Router();
 
 
-app.get('/api/v1/entries', getcontroller.getDairy);
-app.get('/api/v1/entries/:id', getcontroller.getdairyId);
-app.delete('/api/v1/entries/:id', getcontroller.deleteDairy);
-app.post('/api/v1/entries', getcontroller.postDairy);
-app.put('/api/v1/entries/:id', getcontroller.putDairy);
+app.get('/api/v1/entries', getDiary.getallEntry);
+app.get('/api/v1/entries/:id', getDiary.getspefiedEntry);
+app.delete('/api/v1/entries/:id', getDiary.deleteEntry);
+app.post('/api/v1/entries', getDiary.addEntry);
+app.put('/api/v1/entries/:id', getDiary.modifyEntry);
 
- export default app; 
+export default app; 
