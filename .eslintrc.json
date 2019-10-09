@@ -42,7 +42,9 @@
       "no-else-return":"off",
       "no-console":"off",
       "object-curly-spacing":"off",
-      "newline-per-chained-call":"off"
+      "newline-per-chained-call":"off",
+      "no-unused-vars":"off",
+      "arrow-spacing":"off"
      
 
 
