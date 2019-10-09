@@ -1,6 +1,7 @@
 
 import chai, { expect } from 'chai';
 import chaiHTTP from 'chai-http';
+import moment from 'moment';
 
 import app from '../../index';
 
@@ -10,12 +11,15 @@ chai.use(chaiHTTP);
 const newDairy = {
 
   title: 'Dear diary',
-  date: 'on 22 09 2019',
   description: 'get diary',
+};
+const newdairies = {
+  title:'Diary',
+  description:'my diary'
 };
 
 describe('Users API testing', () => {
-  it('GET /users should return all entries', done => {
+  it('GET /users should return all entries', (done) => {
     chai
       .request(app)
       .get('/api/v1/entries')
@@ -31,7 +35,7 @@ describe('Users API testing', () => {
 describe('users can specify  entry', () => {
 
 
-  it('GET /users should get specific entry', done => {
+  it('GET /users should get specific entry', (done) => {
     chai
       .request(app)
       .get('/api/v1/entries/2')
@@ -45,7 +49,7 @@ describe('users can specify  entry', () => {
       }).catch((err) => console.log(err));
   });
 
-  it('user get entry not found', done => {
+  it('user get entry not found', (done) => {
     chai
       .request(app)
       .get('/api/v1/entries/10')
@@ -60,7 +64,7 @@ describe('users can specify  entry', () => {
 
 describe('users add entry', () => {
 
-  it('POST /users should create their own entries', done => {
+  it('POST /users should create their own entries', (done) => {
     chai
       .request(app)
       .post('/api/v1/entries')
@@ -71,16 +75,27 @@ describe('users add entry', () => {
         expect(res.body.message).not.to.be.null;
         expect(res.body.id).not.to.be.null;
         expect(res.body.title).not.to.be.null;
-        expect(res.body.date).not.to.be.null;
         expect(res.body.description).not.to.be.null;
         expect(res.body.status).to.equals(201);
         done();
       });
+    });
   });
-});
+//   describe('users add entry', () => {
+//   it('POST /users should add the entries for bad request', (done) => {
+//     chai
+//       .request(app)
+//       .post('/api/v1/entries')
+//        .send(newdairies)
+//       .then((err) => {
+//       expect(res.status).to.equals(400);
+//       done();
+//     }).catch((error) => console.log(error));
+//     });
+// });
 
 describe('Users Delete', () => {
-  it('Delete /users should delete entries', done => {
+  it('Delete /users should delete entries', (done) => {
     chai
       .request(app)
       .delete('/api/v1/entries/2')
@@ -92,7 +107,7 @@ describe('Users Delete', () => {
         done();
       });
   });
-  it('Delete user delete entry not found', done => {
+  it('Delete user delete entry not found', (done) => {
     chai
       .request(app)
       .delete('/api/v1/entries/10')
@@ -107,12 +122,11 @@ describe('Users Delete', () => {
 });
 
 describe('users can Modify entries', () => {
-  it('UPDATE /users should be able to update entries', done => {
+  it('UPDATE /users should be able to update entries', (done) => {
     const dairies =
     {
 
       title: 'Dear diaries',
-      date: 'on 26 09 2019',
       description: 'get diaries'
     }
     chai
@@ -123,19 +137,17 @@ describe('users can Modify entries', () => {
         expect(res.status).to.equals(200);
         expect(res.body).to.be.an('object');
         expect(res.body.title).not.to.be.null;
-        expect(res.body.date).not.to.be.null;
         expect(res.body.description).not.to.be.null;
         expect(res.body.status).to.equals(200);
 
         done();
       });
   });
-  it('UPDATE/user modify entry not found', done => {
+  it('UPDATE/user modify entry not found', (done)=> {
     const diary =
     {
 
       title: 'Dear diary',
-      date: 'on 02 10 2019',
       description: 'get diary'
     }
     chai
@@ -151,4 +163,3 @@ describe('users can Modify entries', () => {
   });
 
 });
-

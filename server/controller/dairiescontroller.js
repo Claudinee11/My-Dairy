@@ -1,4 +1,6 @@
+import moment from 'moment';
 import validateEntry from '../validation/validation-entry';
+
 import dairies from '../models/dairies';
 
 class getDiary{
@@ -60,7 +62,7 @@ static addEntry(req, res){
     const dairie = {    
       id: dairies.length + 1,
     title: req.body.title,
-    date:req.body.date,
+    date:moment().format('LL'),
     description: req.body.description
   };
   dairies.push(dairie);
@@ -93,10 +95,10 @@ static modifyEntry(req, res){
   }
 
 
-  const updateddairie = {
+  const updateddairie = { 
     id: dairieFound.id,
     title: req.body.title || dairieFound.title,
-    date:req.body.date || dairieFound.date,
+    date:moment().format('LL') || dairieFound.date,
     description: req.body.description || dairieFound.description,
   };
 
