@@ -5,7 +5,7 @@ const signUpValidator = (req, res, next) => {
         firstname: Joi.string().regex(/^[a-zA-Z]+$/).min(3).max(80).required(),
         lastname: Joi.string().regex(/^[a-zA-Z]+$/).min(3).max(80).required(),
         email: Joi.string().email().required(),
-        password: Joi.string().alphanum().min(10).max(30).required()
+        password: Joi.string().alphanum().min(5).max(30).required()
     }
     const result = Joi.validate(req.body, schema);
     if (result.error) {
