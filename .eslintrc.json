@@ -43,8 +43,8 @@
       "no-console":"off",
       "object-curly-spacing":"off",
       "newline-per-chained-call":"off",
-      "no-unused-vars":"off",
-      "arrow-spacing":"off"
+      "no-useless-catch":"off",
+      "no-unused-vars":"off"
      
 
 
