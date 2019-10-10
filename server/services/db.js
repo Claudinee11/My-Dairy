@@ -16,20 +16,20 @@ pool.on('connect', () => {
 
 const createTables = () => {
     const mydiaryTable = `CREATE TABLE IF NOT EXISTS
-    entries(
+    entry(
           id SERIAL PRIMARY KEY,
           title VARCHAR(50) NOT NULL,
-          date VARCHAR(30) NOT NULL,
+          created_date TIMESTAMP,  
           description VARCHAR(255) NOT NULL
           
         )`;
         const entriesTable = `CREATE TABLE IF NOT EXISTS
         users(
             id SERIAL PRIMARY KEY,
-          first_name VARCHAR(40) NOT NULL,
-          last_name VARCHAR(40) NOT NULL,
-          email VARCHAR(30) NOT NULL,
-        password VARCHAR(25) NOT NULL
+          first_name VARCHAR NOT NULL,
+          last_name VARCHAR NOT NULL,
+          email VARCHAR NOT NULL,
+        password VARCHAR NOT NULL
         )`;
     pool.query(mydiaryTable)
       .then((res) => {
