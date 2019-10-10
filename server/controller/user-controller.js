@@ -44,33 +44,33 @@ class UsersDiary {
 
     }
 
-    // static async signinDiary(req, res) {
-    //     try {
-   //         const usersDiary = await UsersDiary.model().select('*', 'email=$1', [req.body.email]);
-    //         if (!usersDiary.length) {
-  //             return res.status(401).send({ status: 401, error: 'encorrect password or email' });
-   //         }
-    //         else if (usersDiary[0].password === req.body.password) {
-    //             const token = validateToken(usersDiary[0].id);
-    //             const data = {
-    //                 token,
-    //                 userdata: lodash.pick(usersDiary[0], 'id', 'email')
-    //             }
-  //             return res.status(201).json({ status: 201, message: 'signin successfully', data});
+    static async signinDiary(req, res) {
+        try {
+           const usersDiary = await UsersDiary.model().select('*', 'email=$1', [req.body.email]);
+            if (!usersDiary.length) {
+              return res.status(401).send({ status: 401, error: 'encorrect password or email' });
+           }
+            else if (usersDiary[0].password === req.body.password) {
+                const token = validateToken(usersDiary[0].id);
+                const data = {
+                    token,
+                    userdata: lodash.pick(usersDiary[0], 'id', 'email')
+                }
+              return res.status(201).json({ status: 201, message: 'signin successfully', data});
 
-    //         }
-    //     }
-    //     catch (error) {
-    //         console.log('something', error);
-    //         return res.status(500).send({
-    //             status: 500,
-    //             err: 'error occurred',
-    //         });
+            }
+        }
+        catch (error) {
+            console.log('something', error);
+            return res.status(500).send({
+                status: 500,
+                err: 'error occurred',
+            });
 
-    //     }
+        }
 
 
-    // };
+    };
 }
 
 export default { UsersDiary };
