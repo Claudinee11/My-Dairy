@@ -44,7 +44,8 @@
       "object-curly-spacing":"off",
       "newline-per-chained-call":"off",
       "no-useless-catch":"off",
-      "no-unused-vars":"off"
+      "no-unused-vars":"off",
+      "no-restricted-globals":"off"
      
 
 

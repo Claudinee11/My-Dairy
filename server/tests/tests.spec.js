@@ -1,165 +1,100 @@
 
 import chai, { expect } from 'chai';
 import chaiHTTP from 'chai-http';
-import moment from 'moment';
+ import users from '../helpers/mockData/users';
+
 
 import app from '../../index';
 
 chai.use(chaiHTTP);
 
+ 
 
-const newDairy = {
-
-  title: 'Dear diary',
-  description: 'get diary',
-};
-const newdairies = {
-  title:'Diary',
-  description:'my diary'
-};
-
-describe('Users API testing', () => {
-  it('GET /users should return all entries', (done) => {
-    chai
-      .request(app)
-      .get('/api/v1/entries')
+describe('POST sign up with first_name, api/v2/auth/signup', () => {
+  it('should return an error', (done) => {
+    chai.request(app)
+      .post('/api/v2/auth/signup')
+      .send(users[0])
       .end((err, res) => {
-        expect(res.status).to.equals(200);
         expect(res.body).to.be.an('object');
-        expect(res.body.status).to.equals(200);
-
+        expect(res.body.error).to.equal(`"firstname" with value "${users[0].firstname}" fails to match the required pattern: /^[a-zA-Z]+$/`);
+        expect(res.body.status).to.equal(400);
         done();
       });
   });
 });
-describe('users can specify  entry', () => {
 
 
-  it('GET /users should get specific entry', (done) => {
-    chai
-      .request(app)
-      .get('/api/v1/entries/2')
-      .then((res) => {
-        expect(res.status).to.equals(200);
-        expect(res.body).to.be.an('object');
-        expect(res.body.status).to.equals(200);
-        expect(res.body.message).not.to.be.null;
-        expect(res.body.status).to.equals(200);
-        done();
-      }).catch((err) => console.log(err));
-  });
-
-  it('user get entry not found', (done) => {
-    chai
-      .request(app)
-      .get('/api/v1/entries/10')
-      .then((res) => {
-        expect(res.status).to.equals(404);
-        expect(res.body.message).not.to.be.null;
-        expect(res.body.status).to.equals(404);
-        done();
-      }).catch((err) => console.log(err));
-  })
-});
-
-describe('users add entry', () => {
-
-  it('POST /users should create their own entries', (done) => {
-    chai
-      .request(app)
-      .post('/api/v1/entries')
-      .send(newDairy)
+describe('POST sign up with empty password, api/v2/auth/signup', () => {
+  it('should return an error', (done) => {
+    chai.request(app)
+      .post('/api/v2/auth/signup')
+      .send(users[0])
       .end((err, res) => {
-        expect(res.status).to.equals(201);
         expect(res.body).to.be.an('object');
-        expect(res.body.message).not.to.be.null;
-        expect(res.body.id).not.to.be.null;
-        expect(res.body.title).not.to.be.null;
-        expect(res.body.description).not.to.be.null;
-        expect(res.body.status).to.equals(201);
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equals(400);
         done();
       });
-    });
   });
-//   describe('users add entry', () => {
-//   it('POST /users should add the entries for bad request', (done) => {
-//     chai
-//       .request(app)
-//       .post('/api/v1/entries')
-//        .send(newdairies)
-//       .then((err) => {
-//       expect(res.status).to.equals(400);
-//       done();
-//     }).catch((error) => console.log(error));
-//     });
+});
+describe('POST sign up success, api/v2/auth/signup', () => {
+  it('should return signup successful', (done) => {
+    chai.request(app)
+      .post('/api/v2/auth/signup')
+      .send(users[1])
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(201);
+        
+        
+        done();
+      });
+  });
+});
+
+// describe('POST email already exist, api/v2/auth/signup', () => {
+//   it('should return {email} already exists', (done) => {
+//     chai.request(app)
+//       .post('/api/v2/auth/signup')
+//       .send(users[1])
+//       .end((err, res) => { 
+//         expect(res.body).to.be.an('object');
+//         expect(res.status).to.equal(409);
+//         // expect(res.body.status).to.equal(409);
+        
+//       });
+//   });
 // });
 
-describe('Users Delete', () => {
-  it('Delete /users should delete entries', (done) => {
-    chai
-      .request(app)
-      .delete('/api/v1/entries/2')
+describe('POST sign up with incorrect  data api/v2/auth/signup', () => {
+  it('should return error when user signup details is incorrect', (done) => {
+    chai.request(app)
+      .post('/api/v2/auth/signup')
+      .send(users[2])
       .end((err, res) => {
-        expect(res.status).to.equals(200);
-        expect(res.body.message).not.to.be.null;
-        expect(res.body.status).to.equals(200);
-
-        done();
-      });
-  });
-  it('Delete user delete entry not found', (done) => {
-    chai
-      .request(app)
-      .delete('/api/v1/entries/10')
-      .then((res) => {
-        expect(res.status).to.equals(404);
-        expect(res.body.message).not.to.be.null;
-        expect(res.body.status).to.equals(404);
-
-        done();
-      }).catch((err) => console.log(err));
-  });
-});
-
-describe('users can Modify entries', () => {
-  it('UPDATE /users should be able to update entries', (done) => {
-    const dairies =
-    {
-
-      title: 'Dear diaries',
-      description: 'get diaries'
-    }
-    chai
-      .request(app)
-      .put('/api/v1/entries/1')
-      .send(dairies)
-      .end((err, res) => {
-        expect(res.status).to.equals(200);
         expect(res.body).to.be.an('object');
-        expect(res.body.title).not.to.be.null;
-        expect(res.body.description).not.to.be.null;
-        expect(res.body.status).to.equals(200);
-
+        expect(res.status).to.equal(409);
+        expect(res.body.status).to.equal(409);
+        
         done();
       });
   });
-  it('UPDATE/user modify entry not found', (done)=> {
-    const diary =
-    {
-
-      title: 'Dear diary',
-      description: 'get diary'
-    }
-    chai
-      .request(app)
-      .put('/api/v1/entries/5')
-      .send(diary)
-      .then((res) => {
-        expect(res.status).to.equals(404);
-        expect(res.body.message).not.to.be.null;
-        expect(res.body.status).to.equals(404);
-        done();
-      }).catch((err) => console.log(err));
-  });
-
 });
+
+describe('POST sign up with invalid email api/v2/auth/signup', () => {
+  it('should return error when the users email is invalid', (done) => {
+    chai.request(app)
+      .post('/api/v2/auth/signup')
+      .send(users[3])
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equal(400);
+        
+        done();
+      });
+  });
+});
+
+

@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser';
-
+import '@babel/polyfill';
 import route from './server/routers/dairyroute';
 import userRoute from './server/routers/users';
 
@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/api/v1', userRoute);
+app.use('/api/v2', userRoute);
 app.use('/', route);
 
 
