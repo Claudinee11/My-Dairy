@@ -1,7 +1,8 @@
 import dotenv from 'dotenv';
-import lodash from 'lodash';
+// import lodash from 'lodash';
 import Model from '../models/connect';
 import validateToken from '../helpers/token';
+
 
 dotenv.config();
 class UsersDiary {
@@ -21,15 +22,15 @@ class UsersDiary {
             const userColms = 'first_name, last_name,email,password';
             const userValues = `'${req.body.firstname}','${req.body.lastname}', '${req.body.email}','${req.body.password}'`;
             const enterUser = await UsersDiary.model().insert(userColms, userValues);
-
+            
             const token = validateToken(enterUser[0].id);
             const data = {
                 token,
-                userdata: lodash.pick(enterUser[0], 'id', 'first_name', 'last_name', 'email')
+                
             }
             return res.status(201).send({
                 status: 201,
-                message: 'user created successfully',
+                message: 'the user created successfully',
                 data
             });
         }
@@ -46,31 +47,31 @@ class UsersDiary {
 
     static async signinDiary(req, res) {
         try {
-           const usersDiary = await UsersDiary.model().select('*', 'email=$1', [req.body.email]);
-            if (!usersDiary.length) {
-              return res.status(401).send({ status: 401, error: 'encorrect password or email' });
-           }
-            else if (usersDiary[0].password === req.body.password) {
-                const token = validateToken(usersDiary[0].id);
-                const data = {
-                    token,
-                    userdata: lodash.pick(usersDiary[0], 'id', 'email')
-                }
-              return res.status(201).json({ status: 201, message: 'signin successfully', data});
-
+            const usersDiary = await UsersDiary.model().select('*', 'email=$1', [req.body.email]);
+             if (!usersDiary.length) {
+               return res.status(401).send({ status: 401, error: 'encorrect password or email' });
             }
-        }
-        catch (error) {
-            console.log('something', error);
-            return res.status(500).send({
-                status: 500,
-                err: 'error occurred',
-            });
-
-        }
-
-
-    };
+             else if (usersDiary[0].password === req.body.password) {
+                 const token = validateToken(usersDiary[0].id);
+                 const data = {
+                     token,
+                     
+                 }
+               return res.status(201).json({ status: 201, message: 'signin successfully', data});
+ 
+             }
+         }
+         catch (error) {
+             console.log('something', error);
+             return res.status(500).send({
+                 status: 500,
+                 err: 'error occurred',
+             });
+ 
+         }
+ 
+ 
+     };
 }
 
 export default { UsersDiary };

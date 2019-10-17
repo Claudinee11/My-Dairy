@@ -1,14 +1,15 @@
 import express from 'express';
-
+import validateEntry from '../midleware/validatED-entry';
 import getDiary from '../controller/dairiescontroller';
+import Authentication from '../midleware/auth';
 
 const app = express.Router();
 
 
-app.get('/api/v1/entries', getDiary.getallEntry);
-app.get('/api/v1/entries/:id', getDiary.getspefiedEntry);
-app.delete('/api/v1/entries/:id', getDiary.deleteEntry);
-app.post('/api/v1/entries', getDiary.addEntry);
-app.put('/api/v1/entries/:id', getDiary.modifyEntry);
+// app.get('/api/v2/entries', Authentication.verifyUsers, getDiary.getallEntry);
+// app.get('/api/v2/entries/:id', Authentication.verifyUsers, getDiary.getspefiedEntry);
+app.delete('/api/v2/entries/:id', Authentication.verifyUsers, getDiary.deleteEntry);
+app.post('/api/v2/entries', Authentication.verifyUsers, validateEntry, getDiary.addEntry);
+app.put('/api/v2/entries/:id', Authentication.verifyUsers, validateEntry, getDiary.modifyEntry);
 
 export default app; 

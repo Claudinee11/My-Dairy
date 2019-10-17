@@ -1,119 +1,167 @@
 import moment from 'moment';
-import validateEntry from '../validation/validation-entry';
+//  import { pool } from '../services/db';
+import Model from '../models/connect';
 
-import dairies from '../models/dairies';
 
-class getDiary{
 
-static getallEntry(req, res) {
-    res.status(200).send({
-      status:200,
-      message: 'diary retrieved successfully',
-       dairies,
-    });
-  };
 
-  static getspefiedEntry(req, res){
-    const id = parseInt(req.params.id);
-    const requestedDiary = dairies.find((diary) => diary.id === id);
-    if(requestedDiary) {
-        return res.status(200).send({
-        status:200,
-        message: 'dairy retrieved successfully',
-        dairy: requestedDiary,
-    });
+class getDiary {
+  static entryModel() {
+    return new Model('entries');
   }
-
-   return res.status(404).send({
-     status:404,
-     message: 'diarie does not exist',
-    });
-  }
-
-
-  static deleteEntry(req, res){
-    const id = parseInt(req.params.id);
- 
-    const dairyToDelete = dairies.find((dairy) => dairy.id === id);
-    if (dairyToDelete) {
-      const index = dairies.indexOf(dairyToDelete)
-        dairies.splice(index, 1);
-         return res.status(200).send({
-           status:200,
-           message: 'diary deleted successfuly',
-         });
-    }
   
-      return res.status(404).send({
-      status:404,
-        message: 'diary not found',
+  // static getallEntry(req, res) {
+  //   pool.connect((err, client, done) => {
+  //     const query = 'SELECT * FROM entries;';
+  //     client.query(query, (error, result) => {
+  //       done();
+  //       if (error) {
+  //         res.status(400).json({ error });
+  //       }
+  //       if (result.rows < '1') {
+  //         res.status(404).send({
+  //           status: 404,
+  //           message: ' Entry  not found',
+  //         });
+  //       } else {
+  //         res.status(200).send({
+  //           status: 200,
+  //           message: 'diary retrieved successfully',
+  //           entries: result.rows,
+  //         });
+  //       }
+  //     });
+  //   });
+
+  // };
+
+  // static getspefiedEntry(req, res) {
+
+  //   const { id } = req.params;
+
+  //   pool.connect((err, client, done) => {
+  //     const values = [id];
+  //     if (isNaN(id)) {
+  //       return res.status(400).json({
+  //         status: 400,
+  //         error: 'entry id should be a number'
+  //       });
+  //     }
+  //     const query = 'SELECT * FROM entries WHERE id = $1;';
+  //     client.query(query, values, (error, result) => {
+  //       done();
+
+  //       if (result.rows < '1') {
+  //         return res.status(404).send({
+  //           status: 404,
+  //           message: ' entry not found',
+  //         });
+  //       } else {
+  //         return res.status(200).send({
+  //           status: 200,
+  //           message: 'Entry Succsesful retrieved',
+  //           entries: result.rows,
+  //         });
+  //       }
+  //     });
+  //   });
+
+  // }
+
+  static async addEntry(req, res) {
+    try {
+
+      const {
+        title,
+        description
+      } = req.body
+
+      const date = moment().format('LL');
+
+      const columns = 'title, date, description';
+      const values = `'${title}', '${date}', '${description}'`;
+
+      const addnewEntry = await getDiary.entryModel().insert(columns, values);
+      
+
+      return res.status(201).json({
+        status: 201,
+        message: 'entry added successfully',
+        data: addnewEntry
       });
 
-  };
-
- 
-
-
-static addEntry(req, res){
-  const { error } = validateEntry.validate(req.body);
-  if (error) {
-    return res.status(400).json({ status: 400, error: error.details[0].message });
-  }
-    const dairie = {    
-      id: dairies.length + 1,
-    title: req.body.title,
-    date:moment().format('LL'),
-    description: req.body.description
-  };
-  dairies.push(dairie);
-  return res.status(201).send({
-    status:201,
-    message: 'diary added successfully',
-    dairies,
-  });
-  };
-
-static modifyEntry(req, res){
- const { error } = validateEntry.validate(req.body);
- if (error) {
-   return res.status(400).json({ status: 400, error: error.details[0].message });
- }
-  const id = parseInt(req.params.id);
-  let dairieFound;
-  let itemIndex;
-  dairies.find((dairie, index) => {
-    if (dairie.id === id) {
-      dairieFound = dairie;
-      itemIndex = index;
+    } catch (err) {
+      return res.status(500).json({
+        status: 500,
+        err: err.message
+      })
     }
-  });
-  if (!dairieFound) {
-    return res.status(404).send({
-      status:404,
-      message: 'diary not found',
-    });
   }
 
 
-  const updateddairie = { 
-    id: dairieFound.id,
-    title: req.body.title || dairieFound.title,
-    date:moment().format('LL') || dairieFound.date,
-    description: req.body.description || dairieFound.description,
-  };
+  static async modifyEntry(req, res) {
+    const { id } = req.params;
+    const {
+      title,
+      description
+    } = req.body
+    if (isNaN(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Entry id should be a number'
+      })
+    }
+    const date = moment().format('LL');
+    const entry = await getDiary.entryModel().select('*', 'id=$1', [id]);
+    if (!entry.length) {
+      return res.status(404).json({
+        status: 404,
+        error: 'entry does not exist'
+      });
+    }
+    const columns = 'title=$1, description=$2';
+    const clause = 'id=$3';
+    const values = [title, description, id];
 
-  dairies.splice(itemIndex, 1, updateddairie);
+    const modifyEntry = await getDiary.entryModel().update(columns, clause, values);
+    return res.status(200).json({
+      status: 200,
+      message: 'entry modified successfully',
+      data: modifyEntry
+    })
+  }
 
-  return res.status(200).send({
-    status:200,
-    message: 'dairy added successfully',
-    updateddairie,
-  });
+  static async deleteEntry(req, res) {
+    const { id } = req.params;
+
+    if (isNaN(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'entry should be a number'
+      })
+    }
+
+    const entry = await getDiary.entryModel().select('*', 'id=$1', [id]);
+    if (!entry.length) {
+      return res.status(404).json({
+        status: 404,
+        error: 'entry does not exist'
+      });
+    }
+
+
+    const deletEntry = await getDiary.entryModel().delete('id=$1', [id]);
+    return res.status(200).json({
+      status: 200,
+      message: 'entry deleted successfully',
+      data: deletEntry
+    })
+
+  }
 };
-}
+
 export default getDiary;
-  
 
-  
 
- 
+
+
