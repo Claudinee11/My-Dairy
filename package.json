@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node index.js",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "test": "babel-node ./server/services/db.js createTables && nyc --reporter=text --reporter=html mocha server/tests --require @babel/polyfill --require @babel/register --timeout 5000 --exit",
+    "test": "babel-node ./server/services/db.js createTables && nyc --reporter=text --reporter=html mocha server/tests --require @babel/polyfill --require @babel/register --timeout 3000 --exit",
     "queries": "babel-node ./server/services/db.js createTables",
     "start": "npm run queries && babel-node index.js",
     "elint": "eslint ./server || true"
