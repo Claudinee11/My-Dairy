@@ -1,5 +1,5 @@
 import moment from 'moment';
-//  import { pool } from '../services/db';
+import userId from '../helpers/userId';
 import Model from '../models/connect';
 
 
@@ -9,64 +9,50 @@ class getDiary {
   static entryModel() {
     return new Model('entries');
   }
-  
-  // static getallEntry(req, res) {
-  //   pool.connect((err, client, done) => {
-  //     const query = 'SELECT * FROM entries;';
-  //     client.query(query, (error, result) => {
-  //       done();
-  //       if (error) {
-  //         res.status(400).json({ error });
-  //       }
-  //       if (result.rows < '1') {
-  //         res.status(404).send({
-  //           status: 404,
-  //           message: ' Entry  not found',
-  //         });
-  //       } else {
-  //         res.status(200).send({
-  //           status: 200,
-  //           message: 'diary retrieved successfully',
-  //           entries: result.rows,
-  //         });
-  //       }
-  //     });
-  //   });
 
-  // };
+  static async getallEntry(req, res) {
+    const { title, description } = req.body
+    const diaries = userId(req, req.header('token'));
+    const getEntry = await getDiary.entryModel().select('*', 'id=$1', [diaries]);
 
-  // static getspefiedEntry(req, res) {
+    if (!getEntry.length) {
+      return res.status(404).json({ status: 404, error: "Diries are not available" });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: 'entry retrieved successfully',
+      data: getEntry
+    });
+  }
 
-  //   const { id } = req.params;
-
-  //   pool.connect((err, client, done) => {
-  //     const values = [id];
-  //     if (isNaN(id)) {
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: 'entry id should be a number'
-  //       });
-  //     }
-  //     const query = 'SELECT * FROM entries WHERE id = $1;';
-  //     client.query(query, values, (error, result) => {
-  //       done();
-
-  //       if (result.rows < '1') {
-  //         return res.status(404).send({
-  //           status: 404,
-  //           message: ' entry not found',
-  //         });
-  //       } else {
-  //         return res.status(200).send({
-  //           status: 200,
-  //           message: 'Entry Succsesful retrieved',
-  //           entries: result.rows,
-  //         });
-  //       }
-  //     });
-  //   });
-
-  // }
+  static async getspecificEntry(req, res) {
+    const { id } = req.params;
+    const {
+      title,
+      description
+    } = req.body
+    if (isNaN(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Entry id should be a number'
+      })
+    }
+    const date = moment().format('LL');
+    const diaries = userId(req, req.header('token'));
+    const diary = await getDiary.entryModel().select('*', 'id=$1', [diaries]);
+    if (!diary.length) {
+      return res.status(404).json({
+        status: 404,
+        error: 'entry does not exist'
+      });
+    }
+    
+    return res.status(200).json({
+      status: 200,
+      message: 'entry retrieved successfully',
+      data: diary
+    })
+  };
 
   static async addEntry(req, res) {
     try {
@@ -82,7 +68,7 @@ class getDiary {
       const values = `'${title}', '${date}', '${description}'`;
 
       const addnewEntry = await getDiary.entryModel().insert(columns, values);
-      
+
 
       return res.status(201).json({
         status: 201,
@@ -98,6 +84,7 @@ class getDiary {
     }
   }
 
+  
 
   static async modifyEntry(req, res) {
     const { id } = req.params;

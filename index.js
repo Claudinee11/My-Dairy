@@ -1,5 +1,4 @@
 import bodyParser from 'body-parser';
-import '@babel/polyfill';
 import route from './server/routers/dairyroute';
 import userRoute from './server/routers/users';
 

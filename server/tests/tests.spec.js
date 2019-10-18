@@ -40,11 +40,12 @@ describe('POST sign up with empty password, api/v2/auth/signup', () => {
   });
 });
 describe('POST sign up success, api/v2/auth/signup', () => {
-  it('should return signup successful', (done) => {
+  it('should return creating account successful', (done) => {
     chai.request(app)
       .post('/api/v2/auth/signup')
       .send(users[1])
       .end((err, res) => {
+        console.log(err);
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(201);
         
@@ -104,6 +105,7 @@ describe('POST signin successfully, api/v2/auth/signin', () => {
       .post('/api/v2/auth/signin')
       .send(users[4])
       .end((err, res) => {
+        
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(201);
         expect(res.body.status).to.equal(201);
@@ -111,6 +113,7 @@ describe('POST signin successfully, api/v2/auth/signin', () => {
       });
   });
 });
+
 describe('POST signin with incorrect data, api/v2/auth/signin', () => {
   it('should return email is required', (done) => {
     chai.request(app)

@@ -1,13 +1,11 @@
 
 const users = [
-    // 0
     {
         firstname: '123',
         lastname:'1234',
         email:'niyoclaudine10@gmail.com',
         password:'',
     },
-    // 1
     {
         firstname: 'claudette',
         lastname:'niyonsaba',
@@ -15,7 +13,7 @@ const users = [
         password:'123coco',
     },
     
-    // 2
+
     {
         firstname: 'claudette',
         lastname:'niyonsaba',
@@ -28,12 +26,12 @@ const users = [
         email:'niyoclaudie.com',
         password:'123coco',
     },
-       // 4
+      
     {
         email:'niyoclaudine10@gmail.com',
         password:'123coco',
       },
-      // 5 Incorrect password
+     
       {
         email:'niyoclaudine10@gmail.com',
         password: 'coco123',
@@ -55,7 +53,12 @@ const users = [
       {
           email:'claudensabi@gmail.com',
           password:'12claude'
-      }
+      },
+
+      {
+        email:'gdhjsksakksk.com',
+        password:''
+    }
 ]
 
 export default users;
