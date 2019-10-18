@@ -1,3 +1,4 @@
+
 after_success: 
   - "npm run coverage"
 cache: 
@@ -11,9 +12,12 @@ install:
 services:
 - postgresql
 before_script:
+
 - psql -c 'CREATE DATABASE mydiary;' -U postgres
+
 notifications: 
   email: false
 script: 
   - "npm run test"
 sudo: false
+

@@ -30,11 +30,12 @@ describe('GET entries, api/v2/entries', () => {
 });
 
 describe('GET entries, api/v2/entries', () => {
-    it('should return specific entry', (done) => {
+    it('should return entry not found', (done) => {
         chai.request(app)
             .get('/api/v2/entries/1')
             .set('token', userToken)
             .end((err, res) => {
+                
                 expect(res.status).to.equal(404);
                 expect(res.body).to.be.an('object');
                 expect(res.body.status).to.equal(404);

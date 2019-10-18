@@ -1,17 +1,13 @@
-import {Pool} from 'pg';
+import { Pool } from 'pg';
 
 const dotenv = require('dotenv');
 
 dotenv.config();
-const config = {
-  connectionString: process.env.DATABASE_URL
-
-};
-
-const pool = new Pool(config);
-
-pool.on('connect', () => {
-  console.log('connected to the Database');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+pool.on('error', (error) => {
+  console.log(error);
 });
 
 const createTables = pool.query(`DROP TABLE IF EXISTS users CASCADE;
