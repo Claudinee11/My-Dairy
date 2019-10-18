@@ -10,4 +10,5 @@ import jwt from 'jsonwebtoken';
      process.env.secretkey);
     return getIt;
 }
+
 export default validateToken;
