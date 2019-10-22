@@ -12,8 +12,7 @@ The project is composed of three different sections:
 - User Interface
 - API
 - Database
-
-- Requirements
+ Requirements
 - User intrface
 
 Any Web Browser (We recommend using Google Chrome)
@@ -52,7 +51,7 @@ Running the tests
 - Run the automated test by running npm run test command
 - Running the UI Template
 - Just run index.html from the cloned project
-OR simply use gh-page to run My-Dairy/UI/html/index.html
+OR simply use gh-page to run  https://claudinee11.github.io/My-Dairy/UI/html/index.html
 
 Used tools
 Server
