@@ -12,7 +12,9 @@ The project is composed of three different sections:
 - User Interface
 - API
 - Database
- Requirements
+   
+   Requirements
+     
 - User intrface
 
 Any Web Browser (We recommend using Google Chrome)
